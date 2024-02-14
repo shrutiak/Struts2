@@ -4,8 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="ISO-8859-1" http-equiv="Content-Type" content="text/html">
 <title>Register</title>
+<s:head/>
 </head>
 <body>
 <s:form action="registerAction">
