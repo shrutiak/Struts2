@@ -15,34 +15,34 @@ public class RegisterAction extends ActionSupport{
 		return "success";
 	}
 	
-//	public void validate ()
-//	{
-//		if(null==firstName || firstName.equalsIgnoreCase(""))
-//		{
-//			addFieldError("firstName", "First name is required.");
-//		}
-//		
-//		if(null==lastName || lastName.equalsIgnoreCase(""))
-//		{
-//			addFieldError("lastName", "Last name is required.");
-//		}
-//		if(null==gender || gender.equalsIgnoreCase(""))
-//		{
-//			addFieldError("gender", "Gender is required.");
-//		}
-//		if(null==age)
-//		{
-//			addFieldError("age", "Age is required.");
-//		}
-//		else if(age<18)
-//		{
-//			addFieldError("age", "Age should be above 18.");
-//		}
-//		if(null==emailId || emailId.equalsIgnoreCase(""))
-//		{
-//			addFieldError("emailId", "Email ID is required.");
-//		}
-//	}
+	public void validate ()
+	{
+		if(null==firstName || firstName.equalsIgnoreCase(""))
+		{
+			addFieldError("firstName", getText("error.firstName.required"));
+		}
+		
+		if(null==lastName || lastName.equalsIgnoreCase(""))
+		{
+			addFieldError("lastName", getText("error.lastName.required"));
+		}
+		if(null==gender || gender.equalsIgnoreCase(""))
+		{
+			addFieldError("gender", getText("error.gender.required"));
+		}
+		if(null==age)
+		{
+			addFieldError("age", getText("error.age.required"));
+		}
+		else if(age<18)
+		{
+			addFieldError("age", getText("error.age.range"));
+		}
+		if(null==emailId || emailId.equalsIgnoreCase(""))
+		{
+			addFieldError("emailId", getText("error.email.required"));
+		}
+	}
 
 	public String getFirstName() {
 		return firstName;

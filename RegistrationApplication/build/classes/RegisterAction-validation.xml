@@ -7,45 +7,35 @@
 
 	<validator type="requiredstring">
 		<param name="fieldName">firstName</param>
-		<message>First name is required.</message>
+		<message key="error.firstName.required" />
 	</validator>
 	
 	<validator type="requiredstring">
 		<param name="fieldName">lastName</param>
-		<message>Last name is required.</message>
+		<message key="error.lastName.required" />
 	</validator>
 	
 	<validator type="requiredstring">
 		<param name="fieldName">gender</param>
-		<message>Gender is required.</message>
+		<message key="error.gender.required" />
 	</validator>
 	
 	<validator type="required">
 		<param name="fieldName">age</param>
-		<message>Age is required.</message>
+		<message key="error.age.required" />
 	</validator>
 	<validator type="int">
 		<param name="fieldName">age</param>
 		<param name="min">18</param>
-		<message>Age should be above ${min}.</message>
+		<message key="error.age.range" />
 	</validator>
 	
 	<field name="emailId">
 		<field-validator type="requiredstring">
-			<message>Email ID is required.</message>
+			<message key="error.email.required" />
 		</field-validator>
 		<field-validator type="email">
-			<message>Must provide a valid email ID.</message>
+			<message key="error.email.valid" />
 		</field-validator>
 	</field>
-	
-	<!--<validator type="requiredstring">
-		<param name="fieldName">emailId</param>
-		<message>Email ID is required.</message>
-	</validator>
-	<validator type="email">
-		<param name="fieldName">emailId</param>
-		<message>Must provide a valid email ID.</message>
-	</validator>-->
-	
 </validators>
