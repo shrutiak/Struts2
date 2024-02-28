@@ -1,6 +1,7 @@
 package action;
 
 import dao.ProductManagementDAO;
+import pojo.Product;
 
 public class UpdateProductAction {
 	
@@ -12,9 +13,11 @@ public class UpdateProductAction {
 	
 	public String populateProductDetails()
 	{
-		System.out.println("UpdateProductAction populateProductDetails method called.\n id = "+id+" name = "+name+
-				" category = "+category+" price = "+price);
-
+		System.out.println("UpdateProductAction populateProductDetails method called.\n id = "+id);
+		Product product = ProductManagementDAO.getProduct(id);
+		name = product.getName();
+		category = product.getCategory();
+		price = product.getPrice();
 		return "input";
 	}
 	

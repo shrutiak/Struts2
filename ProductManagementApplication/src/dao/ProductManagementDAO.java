@@ -44,6 +44,41 @@ public class ProductManagementDAO {
 		return productList;
 	}
 	
+	public static Product getProduct(int id)
+	{
+		System.out.println("getProduct method called.");
+		Product product = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		Connection conn = null;
+		try
+		{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "shrutiak", "Iferg");
+			pst = conn.prepareStatement("select * from products where isDelete = 'N' and id = ?");
+			pst.setInt(1, id);
+			rs = pst.executeQuery();
+			
+			while(rs.next())
+			{
+				product = new Product(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5));
+				System.out.println("Product = "+product.toString());		
+			}
+				
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}finally
+		{
+			DBUtil.closeConnection(conn);
+			DBUtil.closePreparedStatement(pst);
+			DBUtil.closeResultSet(rs);
+		}
+		
+		return product;
+	}
+	
 	public static int insertProduct(String name, String category, int price)
 	{
 		PreparedStatement pst = null;

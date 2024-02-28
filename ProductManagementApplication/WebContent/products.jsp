@@ -26,7 +26,7 @@
 					<td><s:property value="#product.category" /></td>
 					<td><s:property value="#product.price" /></td>
 					<td><a
-						href="uploadProduct?id=<s:property value="#product.id" />&name=<s:property value="#product.name" />&category=<s:property value="#product.category" />&price=<s:property value="#product.price" />">
+						href="uploadProduct?id=<s:property value="#product.id" />">
 							<button>Update</button>
 					</a></td>
 					<td>
