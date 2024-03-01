@@ -6,7 +6,19 @@
 <struts>
 	<constant name="struts.custom.i18n.resources" value="global" />
 	<package name="register" extends="struts-default">
+	
+		<interceptors>
+			<interceptor name="testInterceptors" class="interceptors.TestInterceptors" />
+			<interceptor name="ageGroupInterceptor" class="interceptors.AgeGroupInterceptor"></interceptor>
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="ageGroupInterceptor" />
+				<interceptor-ref name="testInterceptors" />
+			</interceptor-stack>
+		</interceptors>
+		
 		<action name="registerAction" class="RegisterAction">
+			<interceptor-ref name="myStack" />
 			<result name="success">/welcome.jsp</result>
 			<result name="input">/register.jsp</result>
 		</action>
@@ -14,6 +26,7 @@
 		<action name="changeLocaleAction" class="ChangeLocaleAction">
 			<result name="input">/register.jsp</result>
 		</action>
+		
 	</package>
 </struts>
 	

@@ -11,7 +11,7 @@ public class RegisterAction extends ActionSupport{
 
 	public String execute()
 	{
-		System.out.println("Execute method called.");
+		System.out.println("Execute method called. firstName = "+firstName);
 		return "success";
 	}
 	
