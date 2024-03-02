@@ -30,12 +30,16 @@
 		<message key="error.age.range" />
 	</validator>
 	
-	<field name="emailId">
+	<field name="emailId"> 
 		<field-validator type="requiredstring">
 			<message key="error.email.required" />
 		</field-validator>
 		<field-validator type="email">
 			<message key="error.email.valid" />
+		</field-validator>
+		<field-validator type="DomainNameValidator">
+			<param name="domainName">gmail.com</param>
+			<message key="error.email.validdomain" />
 		</field-validator>
 	</field>
 </validators>
