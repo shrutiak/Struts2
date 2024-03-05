@@ -6,25 +6,29 @@ public class LoginInfo {
 	private String username;
 	private String password;
 	private String isActive;
-	
+	private String createdDate;
+	private String updatedDate;
 	
 	public LoginInfo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public LoginInfo(int id, String username, String password, String isActive) {
+	
+	public LoginInfo(int id, String username, String password, String isActive, String createdDate,
+			String updatedDate) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.isActive = isActive;
+		this.createdDate = createdDate;
+		this.updatedDate = updatedDate;
 	}
 
 	@Override
 	public String toString() {
 		return "LoginInfo [id=" + id + ", username=" + username + ", password=" + password + ", isActive=" + isActive
-				+ "]";
+				+ ", createdDate=" + createdDate + ", updatedDate=" + updatedDate + "]";
 	}
 
 	public int getId() {
@@ -57,6 +61,22 @@ public class LoginInfo {
 
 	public void setIsActive(String isActive) {
 		this.isActive = isActive;
+	}
+
+	public String getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(String createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public String getUpdatedDate() {
+		return updatedDate;
+	}
+
+	public void setUpdatedDate(String updatedDate) {
+		this.updatedDate = updatedDate;
 	}
 	
 }

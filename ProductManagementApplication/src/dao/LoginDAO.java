@@ -1,6 +1,8 @@
 package dao;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import dbutil.DBUtil;
 
@@ -47,14 +49,19 @@ public class LoginDAO {
 		PreparedStatement pst = null;
 		int rs = 0;
 		Connection conn = null;
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MMM/yyyy"); 
+		String createdDate = formatter.format(new Date());
+		
 		try
 		{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "shrutiak", "Iferg");
-			pst = conn.prepareStatement("insert into login_info values( login_seq.NEXTVAL , ? , ? , 'Y' )");
+			pst = conn.prepareStatement("insert into login_info values( login_seq.NEXTVAL , ? , ? , 'Y' , ? , ?)");
 			pst.setString(1, username);
 			pst.setString(2, password);
+			pst.setString(3, createdDate);
+			pst.setString(4, null);
 			rs = pst.executeUpdate();
 				
 		}catch(Exception e)

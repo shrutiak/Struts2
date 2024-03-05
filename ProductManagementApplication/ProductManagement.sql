@@ -30,12 +30,12 @@ update products set isdelete = 'N' where id in(1,3,4,21,24,25);
 
 
 ALTER TABLE login_info
-ADD isActive varchar2(10);
+ADD updated_date varchar2(20);
 
 ALTER TABLE login_info
 DROP COLUMN isDelete;
 
 ALTER TABLE products
-ADD isDelete varchar2(10);
+ADD updated_date varchar2(20);
 
 select product_seq.nextval from dual;

@@ -6,30 +6,53 @@
 	 
 <struts>
 	<package name="productManagementApp" extends="struts-default">
+		
+		<interceptors>
+			<interceptor name="loginInterceptor" class="interceptors.LoginInterceptor" />
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="loginInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="loginStack" />
+		
 		<action name="welcome" class="action.WelcomeAction">
 			<result name="success">/login.jsp</result>
 		</action>
+		
 		<action name="SignIn" class="action.SignInAction">
 			<result name="success">/login.jsp</result>
 			<result name="error">/signin.jsp</result>
 		</action>
+		
 		<action name="login" class="action.LoginAction">
 			<result name="success" type="redirect">product</result>
+			<result name="error">/login.jsp</result>
 		</action>
+		
+		<action name="logout" class="action.LogoutAction">
+			<result name="input">/login.jsp</result>
+		</action>
+		
 		<action name="product" class="action.ProductsAction">
 			<result name="input">/products.jsp</result>
 		</action>
+		
 		<action name="addProduct" class="action.AddProductAction">
 			<result name="success" type="redirect">product</result>
 			<result name="error">/addProduct.jsp</result>
 		</action>
+		
 		<action name="uploadProduct" class="action.UpdateProductAction" method="populateProductDetails">
 			<result name="input">/updateProduct.jsp</result>
 		</action>
+		
 		<action name="updateProduct" class="action.UpdateProductAction">
 			<result name="success" type="redirect">product</result>
 			<result name="error">/updateProduct.jsp</result>
 		</action>
+		
 		<action name="deleteProduct" class="action.DeleteProductAction">
 			<result name="success" type="redirect">product</result>
 			<result name="error" type="redirect">product</result>

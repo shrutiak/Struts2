@@ -1,5 +1,7 @@
 package action;
 
+import org.apache.struts2.ServletActionContext;
+
 import dao.LoginDAO;
 
 public class LoginAction {
@@ -16,10 +18,14 @@ public class LoginAction {
 		
 		boolean isValid = LoginDAO.isValidUser(username, password);
 		
+		ServletActionContext.getRequest().getSession().setAttribute("loggedinUser", username);
+		
 		if(isValid)
 			status = "success";
 		else
 			message = "Invalid username or password.";
+		
+		System.out.println("status = "+status);
 		
 		return status;
 	}

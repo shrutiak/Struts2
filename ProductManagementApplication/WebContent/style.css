@@ -1,0 +1,27 @@
+@charset "ISO-8859-1";
+li {
+  display: inline;
+}
+.active {
+  background-color: #04AA6D;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #004000;
+}
+li a {
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #00ff00;
+}
+
+.search {
+	display: inline;
+}
